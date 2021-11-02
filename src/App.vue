@@ -2,18 +2,21 @@
   <div class="container">
     <Header title="RadioGui.de" />
     <Stationlist :stations="stations" />
+    <Searchform />
   </div>
 </template>
 
 <script>
-import Header from "./components/Header.vue";
+import Header from "./components/Header";
 import Stationlist from "./components/Stationlist";
+import Searchform from "./components/Searchform";
 
 export default {
   name: "App",
   components: {
     Header,
     Stationlist,
+    Searchform,
   },
   data() {
     return {
