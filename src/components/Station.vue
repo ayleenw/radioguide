@@ -1,7 +1,12 @@
 <template>
-  <div>
+  <div class="station">
     <h3>{{ station.name }}</h3>
-    <p>{{ station.freq }}</p>
+    <p v-if="station.band == 'fm'">
+      FM {{ station.freq }}MHz ({{ station.signaldb }}dB)
+    </p>
+    <p v-if="station.band == 'dab'">
+      DAB+ {{ station.channel }} ({{ station.bitrate }}kbps)
+    </p>
   </div>
 </template>
 
