@@ -1,16 +1,24 @@
 <template>
   <div class="container">
     <Header title="RadioGui.de" />
+    <Stationlist :stations="stations" />
   </div>
 </template>
 
 <script>
 import Header from "./components/Header.vue";
+import Stationlist from "./components/Stationlist";
 
 export default {
   name: "App",
   components: {
     Header,
+    Stationlist,
+  },
+  data() {
+    return {
+      stations: [],
+    };
   },
   created() {
     this.stations = [
