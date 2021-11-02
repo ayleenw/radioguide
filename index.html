@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Vue - HTTP POST request using fetch with set headers</title>
+  </head>
+
+  <body>
+    <div id="app">
+      <h1>RadioGui.de</h1>
+      <button @click="getStations()">Get Stations</button>
+      <h5 class="card-header">POST Request with Set Headers</h5>
+      <div class="card-body">Returned Auth: {{state}}</div>
+      <div class="card-body">Returned Token: {{token}}</div>
+    </div>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
