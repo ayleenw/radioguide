@@ -1,14 +1,6 @@
 <template>
   <header>
     <h1>{{ title }}</h1>
-    <select
-      class="select"
-      v-model="lang"
-      @change="handleLanguageChange($event)"
-    >
-      <option value="en">English</option>
-      <option value="de">Deutsch</option>
-    </select>
   </header>
 </template>
 
