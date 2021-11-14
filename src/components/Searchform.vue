@@ -1,12 +1,12 @@
 <template>
   <form>
     <div class="form-control">
-      <label>Suche</label>
+      <label>{{ $t("search") }}</label>
       <input
         type="text"
         v-model="text"
         name="text"
-        placeholder="Ort eingeben"
+        placeholder="Ort eingeben / Enter location"
       />
     </div>
     <div class="form-control form-control-check">

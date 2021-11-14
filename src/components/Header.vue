@@ -2,9 +2,8 @@
   <header>
     <h1>{{ title }}</h1>
     <select
-      class="select"
-      v-model="lang"
-      @change="handleLanguageChange($event)"
+      class="form-control"
+      @change="handleLanguageChange($event.target.value)"
     >
       <option value="en">English</option>
       <option value="de">Deutsch</option>
@@ -18,16 +17,15 @@ export default {
   props: {
     title: String,
   },
-  data: function () {
-    const lang = localStorage.getItem("lang") || "en";
+  data() {
     return {
-      lang: lang,
+      lang: "en",
     };
   },
   methods: {
-    handleLanguageChange(event) {
-      localStorage.setItem("lang", event.target.value);
-      window.location.reload();
+    handleLanguageChange(lang) {
+      console.log(lang);
+      this.lang = lang;
     },
   },
 };
