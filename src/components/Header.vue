@@ -3,7 +3,9 @@
     <h1>{{ title }}</h1>
     <select
       class="form-control"
-      @change="handleLanguageChange($event.target.value)"
+      v-model="locale"
+      :options="localeOptions"
+      label="Language"
     >
       <option value="en">English</option>
       <option value="de">Deutsch</option>
@@ -12,21 +14,22 @@
 </template>
 
 <script>
+import { useI18n } from "vue-i18n";
 export default {
   name: "Header",
-  props: {
-    title: String,
-  },
-  data() {
+  setup() {
+    const { t, locale } = useI18n({ useScope: "global" });
     return {
-      lang: "en",
+      t,
+      locale,
+      localeOptions: [
+        { value: "de", label: "German" },
+        { value: "en", label: "English" },
+      ],
     };
   },
-  methods: {
-    handleLanguageChange(lang) {
-      console.log(lang);
-      this.lang = lang;
-    },
+  props: {
+    title: String,
   },
 };
 </script>
