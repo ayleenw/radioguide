@@ -2,7 +2,7 @@
   <div class="container">
     <Header title="RadioGui.de" />
     <Stationlist :stations="stations" />
-    <Searchform />
+    <Searchform @start-search="getStations" />
   </div>
 </template>
 
@@ -23,53 +23,36 @@ export default {
       stations: [],
     };
   },
-  created() {
-    this.stations = [
-      {
-        id: 1,
-        freq: "92.2",
-        channel: "",
-        name: "SWR1 Baden-Württemberg",
-        shortname: "SWR1 BW",
-        band: "fm",
-        location: "Stuttgart-Degerloch",
-        signaldb: 100,
-        bitrate: null,
-      },
-      {
-        id: 2,
-        freq: "102.3",
-        channel: "",
-        name: "AFN Stuttgart - The Eagle",
-        shortname: "AFN",
-        band: "fm",
-        location: "Stuttgart-Frauenkopf",
-        signaldb: 98,
-        bitrate: null,
-      },
-      {
-        id: 3,
-        freq: "87.9",
-        channel: "",
-        name: "Deutschlandfunk Kultur",
-        shortname: "DLF Kult",
-        band: "fm",
-        location: "Stuttgart-Degerloch",
-        signaldb: 96,
-        bitrate: null,
-      },
-      {
-        id: 4,
-        freq: "",
-        channel: "5C",
-        name: "Deutschlandfunk",
-        shortname: "DLF",
-        band: "dab",
-        location: "Stuttgart-Degerloch",
-        signaldb: null,
-        bitrate: 128,
-      },
-    ];
+  methods: {
+    async getStations() {
+      const res = await fetch(
+        "https://i.fmlist.org/119/rsd.php?token=iRibjfUrT2m6NpHTKTuvAUCc48dwzZh83x1selShaev5rAyqT5qCGkVEV709zhoJ&l=12&b=48&band=DAB"
+      );
+
+      const data = await res.json();
+      return data;
+    },
+    async getAuth() {
+      // POST request using fetch with set headers
+
+      const requestOptions = {
+        method: "POST",
+        headers: {
+          "Content-Type": "text/html",
+          key119: "bZvc5GyyBBprCAkcQhVypDPZm3nBJcx7",
+        },
+      };
+
+      const auth = await fetch(
+        "https://i.fmlist.org/119/auth.php",
+        requestOptions
+      )
+        .then((response) => response.json())
+        .then((data) => ((this.state = data.auth), (this.token = data.token)));
+    },
+  },
+  async created() {
+    // this.stations = await this.getStations();
   },
 };
 </script>

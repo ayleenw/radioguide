@@ -1,12 +1,7 @@
 <template>
   <header>
     <h1>{{ title }}</h1>
-    <select
-      class="form-control"
-      v-model="locale"
-      :options="localeOptions"
-      label="Language"
-    >
+    <select class="form-control" v-model="locale" label="Language">
       <option value="en">English</option>
       <option value="de">Deutsch</option>
     </select>

@@ -15,14 +15,26 @@
       <label>DAB+</label>
       <input type="checkbox" v-model="dab" name="dab" />
     </div>
-    <input type="submit" :value="$t('go')" class="btn btn-block" />
   </form>
+  <button
+    @click="onClick"
+    class="btn btn-block"
+    :style="{ background: 'blue' }"
+  >
+    {{ $t("go") }}
+  </button>
 </template>
 
 <script>
 export default {
   name: "Searchform",
   props: {},
+  methods: {
+    onClick(event) {
+      event.preventDefault();
+      this.$emit("start-search");
+    },
+  },
 };
 </script>
 
