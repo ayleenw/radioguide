@@ -1,26 +1,35 @@
 <template>
   <header>
     <h1>{{ title }}</h1>
+    <select
+      class="form-control"
+      v-model="locale"
+      :options="localeOptions"
+      label="Language"
+    >
+      <option value="en">English</option>
+      <option value="de">Deutsch</option>
+    </select>
   </header>
 </template>
 
 <script>
+import { useI18n } from "vue-i18n";
 export default {
   name: "Header",
-  props: {
-    title: String,
-  },
-  data: function () {
-    const lang = localStorage.getItem("lang") || "en";
+  setup() {
+    const { t, locale } = useI18n({ useScope: "global" });
     return {
-      lang: lang,
+      t,
+      locale,
+      localeOptions: [
+        { value: "de", label: "German" },
+        { value: "en", label: "English" },
+      ],
     };
   },
-  methods: {
-    handleLanguageChange(event) {
-      localStorage.setItem("lang", event.target.value);
-      window.location.reload();
-    },
+  props: {
+    title: String,
   },
 };
 </script>

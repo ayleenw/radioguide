@@ -1,5 +1,6 @@
 {
     "language": "Language",
     "search": "Search",
-    "set-location": "Enter location"
+    "set-location": "Enter location",
+    "go": "Go!"
 }

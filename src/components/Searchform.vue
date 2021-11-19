@@ -1,12 +1,12 @@
 <template>
   <form>
     <div class="form-control">
-      <label>Suche</label>
+      <label>{{ $t("search") }}</label>
       <input
         type="text"
         v-model="text"
         name="text"
-        placeholder="Ort eingeben"
+        :placeholder="$t('set-location')"
       />
     </div>
     <div class="form-control form-control-check">
@@ -15,7 +15,7 @@
       <label>DAB+</label>
       <input type="checkbox" v-model="dab" name="dab" />
     </div>
-    <input type="submit" value="Los!" class="btn btn-block" />
+    <input type="submit" :value="$t('go')" class="btn btn-block" />
   </form>
 </template>
 
