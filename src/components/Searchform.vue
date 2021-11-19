@@ -6,7 +6,7 @@
         type="text"
         v-model="text"
         name="text"
-        placeholder="Ort eingeben / Enter location"
+        :placeholder="$t('set-location')"
       />
     </div>
     <div class="form-control form-control-check">
@@ -15,7 +15,7 @@
       <label>DAB+</label>
       <input type="checkbox" v-model="dab" name="dab" />
     </div>
-    <input type="submit" value="Los!" class="btn btn-block" />
+    <input type="submit" :value="$t('go')" class="btn btn-block" />
   </form>
 </template>
 
