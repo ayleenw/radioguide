@@ -15,7 +15,7 @@
       <label>DAB+</label>
       <input type="checkbox" v-model="dab" name="dab" />
     </div>
-    <input type="submit" :value="$t('go')" class="btn btn-block" />
+    <button @click="onClick" class="btn btn-block">{{ $t("go") }}</button>
   </form>
 </template>
 
@@ -23,6 +23,11 @@
 export default {
   name: "Searchform",
   props: {},
+  methods: {
+    onClick() {
+      console.log("Clicked");
+    },
+  },
 };
 </script>
 
