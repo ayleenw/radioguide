@@ -25,7 +25,8 @@ export default {
   props: {},
   methods: {
     onClick() {
-      console.log("Clicked");
+      event.preventDefault();
+      this.$emit("start-search");
     },
   },
 };

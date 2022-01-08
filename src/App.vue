@@ -2,7 +2,7 @@
   <div class="container">
     <Header title="RadioGui.de" />
     <Stationlist :stations="stations" />
-    <Searchform />
+    <Searchform @start-search="getStations" />
   </div>
 </template>
 
@@ -22,6 +22,11 @@ export default {
     return {
       stations: [],
     };
+  },
+  methods: {
+    getStations() {
+      console.log("emited click");
+    },
   },
   created() {
     this.stations = [
