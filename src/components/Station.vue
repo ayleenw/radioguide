@@ -2,10 +2,11 @@
   <div class="station">
     <h3>{{ station.name }}</h3>
     <p v-if="station.band == 'FM'">
-      FM {{ station.freq }}MHz ({{ station.signaldb }}dB)
+      FM {{ station.freq }}MHz ({{ $t("signaldb") }}: {{ station.signaldb }}dB)
     </p>
     <p v-if="station.band == 'DAB'">
-      DAB+ {{ station.channel }} ({{ station.bitrate }}kbps)
+      DAB+ {{ station.channel }} ({{ $t("bitrate") }}:
+      {{ station.bitrate }}kbps, {{ $t("signaldb") }}: {{ station.signaldb }}dB)
     </p>
   </div>
 </template>

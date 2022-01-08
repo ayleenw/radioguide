@@ -30,6 +30,7 @@ export default {
       );
 
       const data = await res.json();
+      console.log(data.stations);
       return data.stations;
     },
     // async getAuth() {

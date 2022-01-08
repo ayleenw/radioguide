@@ -2,5 +2,7 @@
     "language": "Sprache",
     "search": "Suchen",
     "set-location": "Ort eingeben",
-    "go": "Los!"
+    "go": "Los!",
+    "bitrate": "Bitrate",
+    "signaldb": "Empfangsstärke"
 }

@@ -1,6 +1,7 @@
 <template>
   <div :key="station.id" v-for="station in stations">
     <Station :station="station" />
+    <!-- TODO: Sort by signal strength -->
   </div>
 </template>
 

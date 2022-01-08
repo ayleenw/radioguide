@@ -2,5 +2,7 @@
     "language": "Language",
     "search": "Search",
     "set-location": "Enter location",
-    "go": "Go!"
+    "go": "Go!",
+    "bitrate": "bitrate",
+    "signaldb": "signal strenght"
 }
